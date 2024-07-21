@@ -1,0 +1,30 @@
+<!-- 
+
+Modify the route
+Now modify the existing route that handles the homepage / request. Update this route to render the home.ejs template in response to a request.
+👀 When you refresh your browser, it should now be rendering the <h1> with the content Home Page.
+
+Send data to view
+Using the locals object, send the RESTAURANT data from server.js to the home.ejs view.
+
+Using EJS tags, update your HTML to display the restaurant details. Include name, address, and phone.
+
+Update the <title> of your home page to dynamically match the restaurant name.
+
+Level-Up: Include conditional rendering to add the line "Yes we are open!" to the page if the restaurant isOpen, and "Sorry, we are closed." otherwise. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= restaurant.name %></title>
+</head>
+<body>
+  <%- include('./partials/nav') %>
+  <h1>Home Page</h1>
+  <p><%= restaurant.name %></p>
+  <p><%= restaurant.address %></p>
+  <p><%= restaurant.phone %></p>
+  <p><%= restaurant.isOpen ? 'Yes we are open!' : 'Sorry, we are closed.' %></p>
+</body>
+</html>
